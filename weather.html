@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App by Mamta</title>
+    <script src='weather.js'></script>
+    <link rel="stylesheet" href="weather.css">
+    
+
+</head>
+<body style="background-color: #fff7e6;">
+    <main>
+    <div style="width: 100%;  overflow: auto; position:relative;">
+        <img  style="width: 100vw; display: block; height: 300px;" src="./images/nat.webp">
+        <div class="wthr">
+            <h1>Weather Report</h1>
+        </div>
+    </div>
+    <div class="scroll-text">
+        🌤️  Welcome to WeatherNow — Accurate, Real-Time Weather Updates Across All Indian Cities!  🌩️
+      </div>
+    
+    <div style=" margin-top: 30px;">
+        <div style="text-align: center; margin-bottom: 20px;">
+            <form  class="form"     onsubmit="getweather(); return false;" style="text-align: center; margin-bottom: 20px;">
+                <input type="text" id="cityInput" placeholder="Enter City " style="height: 20px; font-size: medium;">
+                <button type="submit" class="mybtn">Get Weather</button>
+            </form>
+        </div>
+        <div style="display: flex; justify-content: space-between; gap: 5px; padding-left: 20px; ">
+                <div id="weatherDisplay" style=" color:black;flex:1;"></div>
+                <div id ="forecast" style=" color:black;flex:1;"></div>
+                </div>
+        </div>    
+    </div>
+        
+</main>
+<footer style="text-align: center;">@buit by Mamta</footer>
+
+
+
+ </body>
+</html>
