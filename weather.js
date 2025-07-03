@@ -54,7 +54,7 @@ function displayweather(data,data1)
 
 
     const weatherHTML=`<h3>Today</h3><h2> ${name},${country}</h2>
-    <h4>Temperature:${temp}degree cent</h4>
+    <h4>Temp:${temp} °C</h4>
     <p>weather:${weatherMain} ${description}</p>
     <p>humidity:${humidity}%</p>
     <p>wind:${speed}m/s</p>
@@ -62,10 +62,22 @@ function displayweather(data,data1)
     weatherDisplay.innerHTML=weatherHTML;
 
 
+    const today = new Date().toISOString().split('T')[0];
+
+    // Filter only those forecasts that are for **future days**, not today
+    const dailyForecasts = data1.list.filter(item => {
+        const date = item.dt_txt.split(' ')[0];
+        return item.dt_txt.includes("12:00:00") && date !== today;
+    });
+
+
+
+
+
+
     
-    const dailyForecasts = data1.list.filter(item => item.dt_txt.includes("12:00:00"));
     const heading = document.createElement('h2');
-    heading.textContent = "5-Day Forecast";
+    heading.textContent = "4-Day Forecast";
     forecastDiv.prepend(heading);
 
     dailyForecasts.forEach(item => {
