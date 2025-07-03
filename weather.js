@@ -54,10 +54,10 @@ function displayweather(data,data1)
 
 
     const weatherHTML=`<h3>Today</h3><h2> ${name},${country}</h2>
-    <h4>Temp:${temp} °C</h4>
-    <p>weather:${weatherMain} ${description}</p>
-    <p>humidity:${humidity}%</p>
-    <p>wind:${speed}m/s</p>
+    <p>Temp: ${temp} °C</p>
+    <p>Weather: ${weatherMain} ${description}</p>
+    <p>Humidity: ${humidity}%</p>
+    <p>Wind: ${speed}m/s</p>
     <img src = "${iconu}" > `;
     weatherDisplay.innerHTML=weatherHTML;
 
