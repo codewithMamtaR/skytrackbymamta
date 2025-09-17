@@ -10,39 +10,33 @@
 </head>
 
 <body>
-
+    <div class="maincontainer">
+        <div class="wthr">
+            <h1>Weather Report</h1>
+        </div>
         
-        <div class="overlay">
-            <div class="wthr">
-                <h1>Weather Report</h1>
-            </div>
-        
-            <div class="scroll-text"     >
-                <span >
+        <div class="scroll-text">
+            <span >
                 🌤️  Welcome to WeatherNow — Accurate, Real-Time Weather Updates Across All Indian Cities!  🌩️
-                </span>
-            </div>
+            </span>
+        </div>
     
-        
-            <div class="content">
-                <form  class="form" onsubmit="getweather(); return false;" style="text-align: center; margin-bottom: 20px;">
-                    <input type="text" id="cityInput" placeholder="Enter City " style="background-color:#ffffff; color:#000;height: 20px; font-size: medium;">
-                    <button type="submit" class="mybtn">search</button>
-                </form>
+        <div class="content">
+            <form  class="form" onsubmit="getweather(); return false;" style="text-align: center; margin-bottom: 20px;">
+                <input type="text" id="cityInput" placeholder="Enter City " style="background-color:#ffffff; color:#000;height: 20px; font-size: medium;">
+                <button type="submit" class="mybtn">search</button>
+            </form>
             
-                <div class="result" id="res" style="display: none;">
-                    <div id="placename" class="wthrdis" style="flex:1;"></div>             
-                    <div id="weatherDisplay"  class="wthrdis" style=" flex:1;"></div>
-                </div>
-                <div class="result" id="foreres" style="display: none;">   
-                    <div  id ="forecast"  class="wthrdis" style="  margin-top: 10px;  flex:1;"></div>
-                </div>
+            <div class="result" id="res" style="display: none;">
+                <div id="placename" class="wthrdis" style="flex:1;"></div>             
+                <div id="weatherDisplay"  class="wthrdis" style=" flex:1;"></div>
             </div>
-        </div>    
+            <div class="result" id="foreres" style="display: none;">   
+                <div  id ="forecast"  class="wthrdis" style="  margin-top: 10px;  flex:1;"></div>
+            </div>
+        </div>
+    </div>    
     
-
-
-
 <footer style="text-align:center;position: fixed;bottom: 0;left: 0;width:   100%;">&copy;built by Mamta</footer>
 
  </body>

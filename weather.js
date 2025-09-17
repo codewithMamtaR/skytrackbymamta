@@ -1,8 +1,5 @@
-
-
 //code to get weather info from weather-service app which is an app/service developed by me which 
 //actually gets weather info from openweather.org .I made a service so that i can hide API key
-
 
 async function getweather() {
     //get city from the user  using DOM
@@ -10,8 +7,9 @@ async function getweather() {
     
     try {
         //making a request to get weather info from weather-service
-        const response = await fetch(`https://weather-service-o92z.onrender.com/weather?city=${city}`);
-      //handle the error if there is a problem fetching data
+//        const response = await fetch(`https://weather-service-o92z.onrender.com/weather?city=${city}`);
+const response = await fetch(`https://weatherserviceforinternship.onrender.com/weather?city=${city}`);  
+//handle the error if there is a problem fetching data
         if (!response.ok) {
           throw new Error(`HTTP error | status: ${response.status}`);
         }
@@ -37,12 +35,13 @@ function displayweather(data,data1)
     const [ { main: weatherMain, description, icon}]=weather;
     //we have two divs weatherDisplay and forecast devoted for displaying weather info iin index.html
     //we will be using innerHTML property of HTML to read weatherHTML which  is filled with data from openweather  
+    //we will make the variables point to respective elements 
     const rs=document.getElementById('res');
-
     const frs=document.getElementById('foreres');    
     const weatherDisplay=document.getElementById('weatherDisplay');
     const forecastDiv = document.getElementById('forecast');
     const place=document.getElementById('placename');
+    
     rs.style.display='flex';
     //if API response from weather-service fails we will return instead of proceeding further
     frs.style.display='flex';
@@ -68,8 +67,8 @@ function displayweather(data,data1)
 
 //displaying temp,weather,humidity,wind to the user
 const phtml=`<h3>Today</h3><br>
- <img src = "${ra}"  style="max-width:100%; height:auto;width:30px; height:40px;"><br>
-<h1> ${name}</h1>`;
+             <img src = "${ra}"  style="max-width:100%; height:auto;width:30px; height:40px;"><br>
+            <h1> ${name}</h1>`;
 place.innerHTML=phtml;
 
     const weatherHTML=`
@@ -80,7 +79,7 @@ place.innerHTML=phtml;
     `;
     weatherDisplay.innerHTML=weatherHTML;
 
-//get today's date
+    //get today's date
     const today = new Date().toISOString().split('T')[0];
     //we have extracted all info from data1 which we have received as response from weather-service 
     // and stored in dailyForecasts and after that we will filter it for 4 days only
@@ -96,32 +95,29 @@ place.innerHTML=phtml;
     forecastDiv.prepend(heading);
 //we will browse 4 day forecast and display the info one by one  
     dailyForecasts.forEach(item => {
-        const condition = item.weather[0].main.toLowerCase();
+            const condition = item.weather[0].main.toLowerCase();
+            let iconu1 = cl;
         
-        let iconu1 = cl;
-        
-    //we are displaying icons according to data like if its rainy  or cloudy
-        if (condition === 'rain') {
-              iconu1=ra;
-        }
-        const div = document.createElement('div');
-        const dateStr = new Date(item.dt_txt).toLocaleDateString("en-US", {
-          weekday: "short",
-          year: "numeric",
-          month: "short",
-          day: "numeric"
-        });
-
-
-     //displaying forecast to the user
-     div.innerHTML = `
-     <div class="fore" >
-       <strong>${dateStr}</strong>
-       <span>${item.main.temp} °C</span>
-       <img class="myimg"  src="${iconu1}" style="; max-width:30px; height:auto;">
-     </div>
-     <br><br>
-   `;
- forecastDiv.appendChild(div);
-      });
+            //we are displaying icons according to data like if its rainy  or cloudy
+            if (condition === 'rain') {
+                iconu1=ra;
+              }
+            const div = document.createElement('div');
+            const dateStr = new Date(item.dt_txt).toLocaleDateString("en-US", {
+                 weekday: "short",
+                  year: "numeric",
+                  month: "short",
+                  day: "numeric"
+                });
+            //displaying forecast to the user
+            div.innerHTML = `
+              <div class="fore" >
+                  <strong>${dateStr}</strong>
+                  <span>${item.main.temp} °C</span>
+                  <img class="myimg"  src="${iconu1}" style="; max-width:30px; height:auto;">
+              </div>
+                <br><br>
+                `;
+            forecastDiv.appendChild(div);
+            });
 }

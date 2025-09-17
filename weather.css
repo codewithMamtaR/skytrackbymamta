@@ -1,9 +1,10 @@
 * {
     box-sizing: border-box;
   }
+  
   .form {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap;/*wrrap item,in my app ,the button ,on to the next line when displayed on small screen */
     justify-content: center;
     gap: 10px;
     margin: 20px;
@@ -32,43 +33,50 @@ html, body {
   
  footer {
    background-color:beige;
-            
     color:black;
     text-align: center;
     padding: 5px;
     font-size: 14px;
   }
 .scroll-text {
-          margin-top: 30px;
-            width: 100vw;
-            white-space: nowrap;
-            overflow: hidden;
-            box-sizing: border-box;
-            color: white;
-            padding: 10px;
-            background: rgba(0, 0, 0, 0.4);
+    margin-top: 30px;
+    width: 100vw;
+    white-space: nowrap;/*keep text on single line*/
+    overflow: hidden;
+    box-sizing: border-box;
+    color: white;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.4);
+    font-family: 'Josefin Sans',sans-serif;
             
-            font-family: 'Josefin Sans',sans-serif;
-            
-}
-.result{
-  
-  gap:10px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-.content {
-  margin-top: 30px;  /* push below scroll text */
-  width: 90%;
-  max-width: 800px;
 }
 .scroll-text span {
   display: inline-block;
   padding-left: 100%;
   animation: scroll-left 30s linear infinite;
 }
+          
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+.result{
+  gap:10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.content {
+  margin-top: 30px; 
+  width: 90%;
+  max-width: 800px;
+}
+
 .wthrdis{
-  flex:1;
+  flex:1;/*flex items will grow and take equal space and shrink when space is too tight*/
   color: white;
   background: rgba(0, 0, 0, 0.4);
   padding: 1rem 2rem;
@@ -79,30 +87,19 @@ html, body {
   min-width: 200px;
   
 }
-.overlay {
-  
-
-  width: 100%;
-  max-width: 900 px;
-  padding: 20px;
-  margin: 0 auto;
-  color: white;
-  display: flex;
-  flex-direction: column;  /* stack naturally */
-  align-items: center;
-  
-}
+.maincontainer {
+        width: 100%;/*take full width of screen*/
+        max-width: 900px;/*not more than 900px even on large sccreens*/
+        padding: 20px;
+        margin: 0 auto;/*top bottom 0,left right auto center*/
+        color: white;
+        display: flex;
+        flex-direction: column; 
+        align-items: center;
+  }
 
 
-          
-@keyframes scroll-left {
-            0% {
-              transform: translateX(0%);
-            }
-            100% {
-              transform: translateX(-100%);
-            }
-          }
+
 .mybtn{
     
     background-color:orangered;
@@ -121,8 +118,7 @@ html, body {
   transform: scale(1.05);     
 }
 .wthr{
-  margin-bottom: 20px;
-  
+    margin-bottom: 20px;
     color: white;
     background: rgba(0, 0, 0, 0.4);
     padding: 1rem 2rem;
@@ -140,6 +136,7 @@ html, body {
   gap:100px;
   flex-wrap:wrap;
 }
+/*Responsive design for small screens like mobile and tabs*/
 @media (max-width: 768px) {
     .wthr {
       font-size: 1.2rem;
@@ -156,8 +153,6 @@ html, body {
   .myimg{
     width: 70px;
   }
-  
-  
     .mybtn {
       font-size: 12px;
       padding: 8px 16px;
